@@ -15,7 +15,6 @@ def create_app():
     # Prepare and reflect the schema
     with app.app_context():
         prepare_base()
-        print_table_names()
 
     # Register blueprints
     app.register_blueprint(bp_questionaire_templates)

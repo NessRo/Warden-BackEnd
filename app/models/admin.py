@@ -15,9 +15,6 @@ def prepare_base():
     AdminQuestionaireSectionTemplate = Base.classes.admin_questionaire_section_templates
     AdminQuestionaireSectionQuestionsTemplate = Base.classes.admin_questionaire_section_questions_templates
 
-def print_table_names():
-       for key, value in Base.classes.items():
-        print(f"{key} => {value}")
 
 
 
