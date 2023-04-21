@@ -15,13 +15,36 @@ def prepare_base():
     AdminQuestionaireSectionTemplate = Base.classes.admin_questionaire_section_templates
     AdminQuestionaireSectionQuestionsTemplate = Base.classes.admin_questionaire_section_questions_templates
 
+def get_questionaire_templates():
+    return db.session.query(AdminQuestionaireTemplate).all()
+
+def append_questionaire_templates(data):
+
+    sections = data.get('sections')
+    questions = []
+    for section in sections:
+        questions.extend(section.get('questions'))
+        del section['questions']
 
 
+    del data['sections']
 
-# Assign the mapped classes to variables
-AdminQuestionaireTemplate = None
-AdminQuestionaireSectionTemplate = None
-AdminQuestionaireSectionQuestionsTemplate = None
+    # Create a new instance of the AdminQuestionaireTemplate model with the provided data
+    new_template = AdminQuestionaireTemplate(**data)
+    db.session.add(new_template)
+
+    # Loop through and Create a new instance of the AdminQuestionaireSectionTemplate model with the provided data
+    for section in sections:
+        new_section = AdminQuestionaireSectionTemplate(**section)
+        db.session.add(new_section)
+
+    # Loop through and Create a new instance of the  AdminQuestionaireSectionQuestionsTemplate model with the provided data
+    for question in questions:
+        new_question = AdminQuestionaireSectionQuestionsTemplate(**question)
+        db.session.add(new_question)
+
+    db.session.commit()
+
 
 
 

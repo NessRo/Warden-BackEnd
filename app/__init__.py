@@ -2,7 +2,7 @@ from flask import Flask
 from config import Config
 from extensions import db, migrate
 from app.routes import bp_questionaire_templates
-from app.models.admin import prepare_base, print_table_names
+from app.models.admin import prepare_base
 
 def create_app():
     app = Flask(__name__)
