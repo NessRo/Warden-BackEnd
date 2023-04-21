@@ -5,4 +5,4 @@ requests==2.27.1
 flask_sqlalchemy
 flask_migrate
 sqlalchemy[postgresql]
-dotenv
+python-dotenv
