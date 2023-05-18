@@ -33,7 +33,6 @@ def append_questionaire_template():
     if data is None:
         return jsonify(error="Invalid JSON data"), 400
     
-    # append_questionaire_templates(data)
 
     append_questionaire_templates(data)
     
