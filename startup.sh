@@ -7,4 +7,4 @@
 cd /home/site/wwwroot/
 
 # Start Gunicorn. Replace `app:app` with the import path to your WSGI application.
-gunicorn --bind=0.0.0.0 app:app
+gunicorn --bind=0.0.0.0 application:app
