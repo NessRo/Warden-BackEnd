@@ -17,8 +17,9 @@ def prepare_base():
     AdminQuestionaireSectionTemplate = Base.classes.admin_questionaire_section_templates
     AdminQuestionaireSectionQuestionsTemplate = Base.classes.admin_questionaire_section_questions_templates
 
-def get_questionaire_templates():
-    return db.session.query(AdminQuestionaireTemplate).all()
+def fetch_questionaire_templates():
+    data = db.session.query(AdminQuestionaireTemplate).all()
+    return data
 
 def append_questionaire_templates(data):
 
@@ -108,6 +109,7 @@ def append_questionaire_templates(data):
         db.session.add(new_question)
 
     db.session.commit()
+
 
 
 

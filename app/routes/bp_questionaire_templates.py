@@ -1,6 +1,6 @@
 from flask import Blueprint, Flask, jsonify, request,Response
 import json
-from app.models.admin import get_questionaire_templates, append_questionaire_templates
+from app.models.admin import fetch_questionaire_templates, append_questionaire_templates
 
 
 bp_questionaire_templates = Blueprint('questionaire_templates', __name__, url_prefix='/questionaire_templates')
@@ -9,7 +9,7 @@ bp_questionaire_templates = Blueprint('questionaire_templates', __name__, url_pr
 def get_questionaire_templates():
     # Implementation for getting questionaire templates
     
-    templates = get_questionaire_templates()
+    templates = fetch_questionaire_templates()
     template_list = []
     for template in templates:
         template_list.append({
@@ -26,6 +26,9 @@ def get_questionaire_templates():
     
 
     return jsonify(templates=template_list)
+      
+
+
 
 @bp_questionaire_templates.route('/append', methods=['POST'])
 def append_questionaire_template():
