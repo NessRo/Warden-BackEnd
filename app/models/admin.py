@@ -25,12 +25,12 @@ def append_questionaire_templates(data):
 
     #Extract Template Master Data
     Template_Data = {
-        'tenant_id':0,
+        'tenant_id':data.get('tenant_id'),
         'questionaire_template_id':data.get('id'),
         'questionaire_name':data.get('TemplateName'),
-        'created_by':'Nassim Rostane',
-        'updated_by':'Nassim Rostane',
-        'status':'Published'
+        'created_by':data.get('created_by'),
+        'updated_by':data.get('updated_by'),
+        'status':data.get('status')
     }
 
     #Extract Sections
